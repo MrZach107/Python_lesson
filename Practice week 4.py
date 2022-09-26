@@ -183,27 +183,31 @@ else:
 
 print("輸入規則如下:\nline1: n ∈ {2,3,4,5,6}\nline2: Mi ∈ {10,...,100}\nline3: Xi ∈ {0,...,10000}\n")
 
+
 sum_demand = 0
 temp_average = 0
 lst = []
 
-n = int(input())
-m = int(input())
-line3 = [int(i) for i in input().split()]
 
+#input line1
+n = int(input())
 if (n == 2) or (n == 3) or (n == 4) or (n == 5) or (n == 6):
     pass
-
 else:
     print("Error: n is out of index ( n ∈ {2,3,4,5,6} )")
-
+    
+    
+#input line2
+m = int(input())
 if (m > 100) or (m < 10):
     print("Error: Mi is out of index ( Mi ∈ {10,...,100} )")
+
     
+#input line3
+line3 = [int(i) for i in input().split()]
 for i in range(m):
     if (line3[i] > 10000) or (line3[i] < 0):  
         print("Error: line3 out of index ( Xi ∈ {0,...,10000} )")
-        break
 
 for i in range (m-n+1):
     sum_demand = 0
