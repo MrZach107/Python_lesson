@@ -29,7 +29,7 @@ else:
 #---------------------------------------------------------------------------------------------------------------------------------
 
 #EX_2
-#數字處理 (基數 *=3,再 +=1 ) (偶數 //= 2)
+#數字處理 (奇數 *=3,再 +=1 ) (偶數 //= 2)
 
 num = int(input())
 status = False
@@ -84,6 +84,7 @@ import random
 target = random.sample(range(1, 10), 4)
 A = 0
 B = 0
+print("請輸入四位連續數字 直到滿足 4 A 0 B 即為成功")
 temp = False
 
 while temp == False:
@@ -185,7 +186,7 @@ print("輸入規則如下:\nline1: n ∈ {2,3,4,5,6}\nline2: Mi ∈ {10,...,100}
 
 
 sum_demand = 0
-temp_average = 0
+forecast = 0
 lst = []
 
 
@@ -214,9 +215,10 @@ for i in range (m-n+1):
     for j in range(n):
         sum_demand += int(line3[j+i])
         
-    temp_average = sum_demand // n
-    lst.append(temp_average)
+    forecast = sum_demand // n
+    lst.append(forecast)
 
+#印出字串(用逗點隔開)
 lst_str = str(lst)[1:-1]
 print(lst_str.replace(" ",""))
 
