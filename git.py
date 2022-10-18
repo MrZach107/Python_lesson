@@ -29,5 +29,10 @@
 
 查詢git狀態
   git status
+  
+  
+先拉再推 #本地端版本過舊 所以需要先 git.pull --rebase 再 git.push
+  git.pull --rebase    # --rebase 參數是表示「內容抓下來之後請使用 Rebase 方式合併」
+  
 """
  
