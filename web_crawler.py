@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[41]:
+#---------------------------------------------------------------------------------------------------------------------------------
 
+#發 requests 取得原始碼
 
-# 發requests取得原始碼
 from bs4 import BeautifulSoup as bs
 import requests
 
@@ -16,11 +16,10 @@ headers = { "cookie":"over18=1",
 res = requests.get(url,headers = headers)
 print(res.text)
 
-
-# In[96]:
-
+#---------------------------------------------------------------------------------------------------------------------------------
 
 #利用 BeautifulSoup 做 html 解析
+
 soup = bs(res.text,'lxml')
 data = soup.select('div.r-ent')
 
@@ -29,9 +28,7 @@ for ele in data:
     print("標題 :",title)
     print('-'*100)
 
-
-# In[121]:
-
+#---------------------------------------------------------------------------------------------------------------------------------
 
 #解析標題/時間/推文數量/連結
 
@@ -77,11 +74,10 @@ def get_parsing_data(soup):
                 
 get_parsing_data(soup)
 
-
-# In[47]:
-
+#---------------------------------------------------------------------------------------------------------------------------------
 
 # 發 requests 取得原始碼
+
 from bs4 import BeautifulSoup as bs
 import requests
 
@@ -95,9 +91,7 @@ soup = bs(res.text,"lxml")
 
 print(soup)
 
-
-# In[70]:
-
+#---------------------------------------------------------------------------------------------------------------------------------
 
 #取得分頁的 index 值
 
@@ -111,11 +105,10 @@ page_num = previous_page.replace("https://www.ptt.cc/bbs/Gossiping/index","").re
 for i in range(5):
     print("https://www.ptt.cc/bbs/Gossiping/index{}.html".format(temp-i))
 
-
-# In[106]:
-
+#---------------------------------------------------------------------------------------------------------------------------------
 
 #抓取 前五頁 文章列表的資料
+
 url = 'https://www.ptt.cc/bbs/Gossiping/index.html'
 headers = { "cookie":"over18=1",
 'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
@@ -133,11 +126,10 @@ page_num = previous_page.replace("https://www.ptt.cc/bbs/Gossiping/index","").re
 for i in range(5):
     print("https://www.ptt.cc/bbs/Gossiping/index{}.html".format(temp-i))
 
-
-# In[122]:
-
+#---------------------------------------------------------------------------------------------------------------------------------
 
 #抓取 首頁資料
+
 url = 'https://www.ptt.cc/bbs/Gossiping/index.html'
 headers = { "cookie":"over18=1",
 'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
@@ -172,23 +164,23 @@ for i in range(5):
     
 print("Done")
 
+#---------------------------------------------------------------------------------------------------------------------------------
 
-# In[123]:
-
+#輸出檢查 output
 
 output
 
-
-# In[124]:
-
+#---------------------------------------------------------------------------------------------------------------------------------
 
 # 利用 pandas 製作出一個 DataFrame
+
 import pandas as pd
 df = pd.DataFrame(output)
 df
 
+#---------------------------------------------------------------------------------------------------------------------------------
 
-# In[125]:
+#end
 
 
 # 匯出成 excel 並命名為 "ppt-gossip"
